@@ -1,0 +1,9 @@
+{% if user_info_list %}
+    <ul>
+    {% for user in user_info_list %}
+        <li><a href="/login_app/{{ user.id }}/">{{ user.username }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p> No users are available </p>
+{% endif %}

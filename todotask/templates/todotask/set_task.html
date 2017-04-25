@@ -1,0 +1,8 @@
+<h1>Set task</h1>
+
+<form action='todotask' method='POST'>
+{% csrf_token %}
+    title: <input type='text' name='title' id='title' />
+    content: <input type='text' name='content' id='content' />
+<input type='submit' value='Submit'>
+</form>

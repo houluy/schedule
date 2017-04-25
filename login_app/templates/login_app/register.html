@@ -1,0 +1,14 @@
+<h1>User register</h1>
+Please fill your information
+
+<form action="info" method="post">
+{% csrf_token %}
+    Username: <input type="text" name="username" id="username" />
+    <br />
+    Password: <input type="text" name="password" id="password" />
+    <br />
+    Email address: <input type="email" name="email" id="email" />
+    <br />
+    Birthday: <input type="date" name="birth" id="birth" />
+<input type="submit" value="Submit" />
+</form>
