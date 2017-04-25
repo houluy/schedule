@@ -1,8 +1,35 @@
 <h1>Your task</h1>
-<h2>{{ object.username }}</h2>
+<h2>{{ username }}</h2>
 
-<p>{{ object.title }}</p>
-<p>{{ object.content }}</p>
+<table border=1>
+{% for task in task_list %}
+    <tr>
+        <th>index</th>
+        <th>title</th>
+        <th>content</th>
+        <th>state</th>
+        <th>modify</th>
+    </tr>
+    <tr>
+        <td>{{ task.index }}</td>
+        <td>{{ task.title }}</td>
+        <td>{{ task.content }}</td>
+        {% if task.done %}
+            <td bgcolor='blue'>DONE</td>
+            <td><form action='houlu/modify' method='post'>
+                {% csrf_token %}
+                <button type='submit' name='change'>UNDONE</button>
+            </form></td>
+        {% else %}
+            <td bgcolor='red'>UNDONE</td>
+            <td><form action='houlu/modify' method='post'>
+                {% csrf_token %}
+                <button type='submit' name='change'>DONE</button>
+            </form></td>
+        {% endif %}
+    </tr>
+{% endfor %}
+</table>
 
 <form action="set" method="get">
     <button type='submit'>set</button>
